@@ -1,14 +1,14 @@
 [
     {
-        "username": "Louis",
-        "pets": ["cat"] 
+        "username": "user1",
+        "pets": ["dog"] 
     },
     {
-        "username": "Thomas",
+        "username": "user2",
         "pets": []
     },
     {
-        "username": "Marc",
+        "username": "user3",
         "pets": ["duck", "duck", "goose"]
     }
 ]
