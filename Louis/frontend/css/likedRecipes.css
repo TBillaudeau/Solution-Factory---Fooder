@@ -1,0 +1,19 @@
+
+
+h1 {
+    font-size: 4em;
+    font-weight: bold;
+    margin: 0 0 0.6em 0;
+    text-align: center;
+    color: rgb(253, 58, 115);
+}
+
+.container {
+    text-align: center;
+}
+
+#instruction-container {
+    margin: 0 auto;
+    width: 80%;
+    text-align: left;
+}
