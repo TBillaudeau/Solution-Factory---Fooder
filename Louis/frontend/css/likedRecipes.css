@@ -11,9 +11,3 @@ h1 {
 .container {
     text-align: center;
 }
-
-#instruction-container {
-    margin: 0 auto;
-    width: 80%;
-    text-align: left;
-}

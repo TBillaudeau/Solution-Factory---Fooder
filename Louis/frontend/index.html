@@ -6,13 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fooder</title>
 
-    <!-- Add scripts -->
-
     <!-- Include css -->
     <link rel="stylesheet" href="css/style.css">
 </header>
 
-<body>
+<body onload="initFirstRecipe()">
     <h1>Fooder</h1>
 
     <div class="container">
@@ -21,35 +19,18 @@
         </div>
 
         <div class="recipe_info">
-            <h2 id="title-container">Cinnamon rolls</h2>
-            <img src="https://cdn.patateetcornichon.com/media/recipes/cinnamon-rolls-vegan.jpg.600x600_q85_crop.jpg" id="image-container"/>
+            <h2 id="title-container">Did you really see this ?</h2>
+            <img src="https://images.unsplash.com/photo-1541780171255-b162a3a147e3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" id="image-container"/>
 
             <div>
-                HealthScore : <span id="healthScore-container">5</span></div>
+                HealthScore : <span id="healthScore-container">-1000</span></div>
             </div>
 
-            <button class="button1" onclick="">Dislike</button>
-            <button class="button2" onclick="getInfos()">Like</button>
+            <button class="button1" onclick="getInfos(0)">Dislike</button>
+            <button class="button2" onclick="getInfos(1)">Like</button>
         </div>
     </div>
 
-    
-    <!-- <br><br><hr><hr>
-    <div>This is simple test to get data from a backend</div>
-    <div><span>Last update: </span><span id="time-container"></span></div>
-    <div>
-        <label for="data-input">Data to send:</label>
-        <input type="text" id="data-input">
-        <button onclick="sendData()">Send data</button>
-    </div>
-    <div>
-        <div id="sent-data-container"></div>
-    </div>
-    <hr>
-    <div>
-        <button onclick="getUsers()">Get user data</button>
-        <div id="result-container"></div>
-    </div> -->
 </body>
 
 <script type="text/javascript" src="js/scripts.js"></script>

@@ -36,8 +36,24 @@ df = df.loc[df['healthScore'] >= 50]
 #! Link from recipes to the webiste 
 #! #################################
 
-#? For now, stores all recipes already proposed to the user
+#TODO --------------------------------------------
+#TODO Local variables until we work with a databse
 list_recipes_id_used = []
+list_recipes_id_liked = []
+list_reciped_id_disliked = []
+#TODO --------------------------------------------
+
+#? We need to create an encoder in order to convert the data to json
+class NpEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, np.integer):
+            return int(obj)
+        if isinstance(obj, np.floating):
+            return float(obj)
+        if isinstance(obj, np.ndarray):
+            return obj.tolist()
+        return super(NpEncoder, self).default(obj)
+
 
 #! Function to return a random recipe not already proposed to the user
 def get_random_recipe():
@@ -55,13 +71,33 @@ def get_random_recipe():
         return random_recipe
 
 
-
-
 @app.route("/get-recipe", methods=["GET" , "POST"])
 def get_recipe():
     if request.method == "GET":
         return flask.jsonify("Please use POST method")
     elif request.method == "POST":
+        global lastRecipeID
+        #! ---------------------
+        #! Like or Dislike ?
+        #! ---------------------
+        #? First we check if the user liked or disliked the last recipe
+        like_or_dislike = request.get_json()
+        print("DATA like: ",like_or_dislike)
+
+        if like_or_dislike['data'] == 1:
+            with open('lastRecipeID.txt', 'r') as f:
+                lastRecipeID = f.read()
+            list_recipes_id_liked.append(int(lastRecipeID))
+            print("Added recipe to liked list (", lastRecipeID ,"), list updated: " , list_recipes_id_liked)
+        elif like_or_dislike['data'] == 0:
+            with open('lastRecipeID.txt', 'r') as f:
+                lastRecipeID = f.read()
+            list_reciped_id_disliked.append(int(lastRecipeID))
+            print("Added recipe to disliked list (", lastRecipeID ,"), list updated: " , list_reciped_id_disliked)
+        else:
+            pass
+            #? it's the first recipe shown to the user so we don't need to do anything here
+
         #! ---------------------
         #! Get the recipe 
         #! ---------------------
@@ -74,6 +110,12 @@ def get_recipe():
         this_healthscore = recipe['healthScore'].values[0]
         print("Healthscore: ",this_healthscore)
 
+        #? We add the ID of the recipe to a txt file
+        lastRecipeID = recipe['id'].values[0]
+        with open('lastRecipeID.txt', 'w') as f:
+            f.write(str(lastRecipeID))
+            print("Added RECIPEID to txt file")
+
         #? create dict data
         return_data = {
             'title': this_title,
@@ -81,57 +123,49 @@ def get_recipe():
             'healthScore': this_healthscore
         }
 
-        #? We need to create an encoder in order to convert the data to json
-        class NpEncoder(json.JSONEncoder):
-            def default(self, obj):
-                if isinstance(obj, np.integer):
-                    return int(obj)
-                if isinstance(obj, np.floating):
-                    return float(obj)
-                if isinstance(obj, np.ndarray):
-                    return obj.tolist()
-                return super(NpEncoder, self).default(obj)
-
         #? Convert the data to json   
         return_data = json.dumps(return_data , cls = NpEncoder)
 
         #? Return the data
         return flask.Response(response = return_data, status=201)
 
+@app.route("/get-infos-recipe", methods=["GET" , "POST"])
+def get_infos_recipe():
+    if request.method == "GET":
+        return flask.jsonify("Please use POST method")
+    elif request.method == "POST":
+        #? We create a dict who will contain all the recipes infos so we can show them on the site
+        recipes_infos = {}
 
+        #! FO TEST PRUPOSES
+        #list_recipes_id_liked = [652417 , 659135 , 665294 , 715447]
 
+        print("User asked for list of recipes, list of recipes liked : " , list_recipes_id_liked)
 
+        #? We now add the name, the healthscore, the preparation time and the image of each recipe to the dict
+        i = 0
 
+        #TODO PB ICI
+        for index, row in df.iterrows():
+            print("Index: ",index , "ID: ",row['id'])
+            print(list_recipes_id_liked)
+            if row['id'] in list_recipes_id_liked:
+                recipes_infos[i] = {
+                    'id' : row['id'],
+                    'title': row['title'],
+                    'healthScore': row['healthScore'],
+                    'preparationTime': row['readyInMinutes'], 
+                    'nbrServings': row['servings'],
+                    'image': row['image']
+                }
+                print("Added recipe to dict" , recipes_infos)
+                i += 1
 
-#! ############################
-#! Flask App TESTS TESTS
-#! ############################
+        #? Convert the data to json   
+        return_data = json.dumps(recipes_infos , cls = NpEncoder)
 
-# @app.route('/users', methods=["GET" , "POST"])
-# def users():
-#     print("users endpoint reached...")
-#     if request.method == "GET":
-#         with open("users.json", "r") as f:
-#             data = json.load(f)
-#             #? To add a new user to the users.json file
-#             # data.append({
-#             #     "username": "user4",
-#             #     "pets": ["hamster"]
-#             # })
-
-#             return flask.jsonify(data)
-    
-#     if request.method == "POST":
-#         received_data = request.get_json()
-#         print(f"received data: {received_data}")
-#         message = received_data['data']
-#         title = "pizza"
-#         img = 'https://spoonacular.com/recipeImages/664288-556x370.jpg'
-#         return_data = {
-#             "title": title,
-#             "img": img
-#         }
-#         return flask.Response(response=json.dumps(return_data), status=201)
+        #? Return the data
+        return flask.Response(response = return_data, status=201)
 
 
 #? Run Flask App

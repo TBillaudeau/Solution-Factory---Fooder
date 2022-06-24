@@ -8,6 +8,12 @@ getXmlHttpRequestObject = function () {
     return xhr;
 };
 
+function initFirstRecipe() {
+    console.log("Web page loaded !");
+    getInfos(2);
+    console.log("Starting init of the first recipe ...");
+}
+
 function addInfos() {
     // Check response is ready or not
     if (xhr.readyState == 4 && xhr.status == 201) {
@@ -29,62 +35,18 @@ function addInfos() {
         imgDiv.src = dictionary['image'];
         healthDiv.innerHTML = dictionary['healthScore'];
     }
-    if (xhr.status == 500) {
-        getInfos();
-    }
 }
 
-function getInfos() {
+function getInfos(like_or_dislike) {
     xhr = getXmlHttpRequestObject();
     xhr.onreadystatechange = addInfos;
     // asynchronous requests
     xhr.open("POST", "http://localhost:6969/get-recipe", true);
     xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     // Send the request over the network
-    xhr.send();
+    xhr.send(JSON.stringify({"data": like_or_dislike}));
 }
 
-
-// function addImage() {
-//     // Check response is ready or not
-//     if (xhr.readyState == 4 && xhr.status == 200) {
-//         console.log("Image received - TEST 1");
-//         dataDiv = document.getElementById('image_recipe');
-//         dictImg = JSON.parse(xhr.responseText);
-//         console.log(dictImg.image);
-//         dataDiv.src = dictImg.image;
-//     }
-// }
-
-// function addTitle() {
-//     // Check response is ready or not
-//     if (xhr.readyState == 4 && xhr.status == 200) {
-//         console.log("Title received!");
-//         dataDiv = document.getElementById('title-container');
-//         dictTitle = JSON.parse(xhr.responseText);
-//         dataDiv.innerHTML = dictTitle.title;
-//     }
-// }
-
-// function getImage() {
-//     console.log("!!Get image...");
-//     xhr = getXmlHttpRequestObject();
-//     xhr.onreadystatechange = addImage;
-//     // asynchronous requests
-//     xhr.open("GET", "http://localhost:6969/image", true);
-//     // Send the request over the network
-//     xhr.send(null);
-// }
-
-// function getTitle() {
-//     console.log("!!Get title...");
-//     xhr = getXmlHttpRequestObject();
-//     xhr.onreadystatechange = addTitle;
-//     // asynchronous requests
-//     xhr.open("GET", "http://localhost:6969/title", true);
-//     // Send the request over the network
-//     xhr.send(null);
-// }
 
 
 //! -------------------------------------------------

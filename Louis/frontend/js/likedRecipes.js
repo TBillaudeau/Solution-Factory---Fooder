@@ -8,37 +8,52 @@ getXmlHttpRequestObject = function () {
     return xhr;
 };
 
-function addInfos() {
-    // Check response is ready or not
+//? Function who start when the page run and add all recipes
+function initListRecipes() {
+    console.log("Starting init of the list of the recipes ...");
+    getInfosRecipe();
+}
+
+function addInfosRecipe() {
+    //? Check response is ready or not
     if (xhr.readyState == 4 && xhr.status == 201) {
-        // Check response is ready or not
         data = xhr.responseText;
 
-        // We convert the data who is a string into a dictionary
-        var dictionary = JSON.parse(data);
+        //? We convert the data who is a string into a dictionary
+        var data = JSON.parse(data);
 
-        console.log("Received data on the next recipe !");
-        console.log(dictionary);
+        console.log("Received data !");
+        console.log(data);
 
-        // We add all infos into the web page
-        titleDiv = document.getElementById('title-container');
-        imgDiv = document.getElementById('image-container');
-        healthDiv = document.getElementById('healthScore-container');
+        console.log("Length:");
+        var length = Object.keys(data).length;
+        console.log(length);
 
-        titleDiv.innerHTML = dictionary['title'];
-        imgDiv.src = dictionary['image'];
-        healthDiv.innerHTML = dictionary['healthScore'];
-    }
-    if (xhr.status == 500) {
-        getInfos();
+
+        //? We add all infos into the web page by creating divs
+        for (var i = 0; i < length; i++) {
+            console.log("Adding recipe " + i + "informations ...");
+            var div = document.getElementById("recipes-container");
+            div.innerHTML +=
+                "<br>" +
+                "<div class='recipe-title'>" + data[i]['title'] + "</div>" +
+                "<div class='recipe-healthScore'>" + "HealthScore : " + data[i]["healthScore"] + "%" + "</div>" +
+                "<div class='recipe-preparationTime'>" + "Preparation time : " + data[i]["preparationTime"] + "min for " + data[i]["nbrServings"] + " persons" + "</div>" +
+                "<div class='recipe-image'><img src='" + data[i]["image"] + "'></div>"+
+                "<br>";
+
+        }    
+        //TODO We add the event listener to the divs
+
+          
     }
 }
 
-function getInfos() {
+function getInfosRecipe() {
     xhr = getXmlHttpRequestObject();
-    xhr.onreadystatechange = addInfos;
+    xhr.onreadystatechange = addInfosRecipe;
     // asynchronous requests
-    xhr.open("POST", "http://localhost:6969/get-recipe", true);
+    xhr.open("POST", "http://localhost:6969/get-infos-recipe", true);
     xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     // Send the request over the network
     xhr.send();
