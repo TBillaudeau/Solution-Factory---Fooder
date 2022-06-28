@@ -137,18 +137,12 @@ def get_infos_recipe():
         #? We create a dict who will contain all the recipes infos so we can show them on the site
         recipes_infos = {}
 
-        #! FO TEST PRUPOSES
-        #list_recipes_id_liked = [652417 , 659135 , 665294 , 715447]
-
         print("User asked for list of recipes, list of recipes liked : " , list_recipes_id_liked)
 
         #? We now add the name, the healthscore, the preparation time and the image of each recipe to the dict
         i = 0
 
-        #TODO PB ICI
         for index, row in df.iterrows():
-            print("Index: ",index , "ID: ",row['id'])
-            print(list_recipes_id_liked)
             if row['id'] in list_recipes_id_liked:
                 recipes_infos[i] = {
                     'id' : row['id'],
@@ -167,6 +161,53 @@ def get_infos_recipe():
         #? Return the data
         return flask.Response(response = return_data, status=201)
 
+@app.route("/delete-recipe", methods=["POST"])
+def delete_recipe():
+    if request.method == "POST":
+        #? Get the id of the recipe to delete
+        id_recipe = request.get_json()
+        id_recipe = id_recipe['id']
+        print("ID of the recipe to delete: ",id_recipe)
+
+        #? Check if the recipe is in the list of liked recipes
+        if id_recipe in list_recipes_id_liked:
+            #? Remove the recipe from the list of liked recipes
+            list_recipes_id_liked.remove(id_recipe)
+            print("Removed recipe from liked list (", id_recipe ,"), list updated: " , list_recipes_id_liked)
+        else:
+            print("Error, recipe not found in the list of liked recipes")
+        return flask.Response(response = "Recipe deleted", status=201)
+
+@app.route("/get-infos-recipe-liked" , methods=["POST"])
+def get_infos_recipe_liked():
+    if request.method == "POST":
+        #? We get the id
+        id_recipe = request.get_json()["id"]
+        print("ID of the recipe to be shown: ",id_recipe[0])
+
+        #? We create a dict who will contain all the recipes infos so we can show them on the site
+        recipes_infos = {}
+
+        #? We now add all the infos
+
+        #TODO Not working ??...
+        for index, row in df.iterrows():
+            if row['id'] == id_recipe[0]:
+                recipes_infos = {
+                    'id' : row['id'],
+                    'title': row['title'],
+                    'healthScore': row['healthScore'],
+                    'preparationTime': row['readyInMinutes'], 
+                    'nbrServings': row['servings'],
+                    'image': row['image']
+                }
+                print("Added recipe to dict" , recipes_infos)
+
+        #? Convert the data to json   
+        return_data = json.dumps(recipes_infos , cls = NpEncoder)
+
+        #? Return the data
+        return flask.Response(response = return_data, status=201)
 
 #? Run Flask App
 if __name__ == "__main__":

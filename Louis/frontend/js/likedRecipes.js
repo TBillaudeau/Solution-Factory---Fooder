@@ -29,25 +29,57 @@ function addInfosRecipe() {
         var length = Object.keys(data).length;
         console.log(length);
 
+        //? Show a message if there is no recipe
+        if (length == 0) {
+            var div = document.getElementById("recipes-container");
+            div.innerHTML +=
+                "<div class='info-container'>You didn't like any recipes ... </div>";
+        }
+
 
         //? We add all infos into the web page by creating divs
         for (var i = 0; i < length; i++) {
-            console.log("Adding recipe " + i + "informations ...");
+            console.log("Adding recipe " + i + " informations ...");
             var div = document.getElementById("recipes-container");
             div.innerHTML +=
                 "<br>" +
-                "<div class='recipe-title'>" + data[i]['title'] + "</div>" +
+                "<a onclick='showInfosRecipe("+ data[i]['id'] +")' class='recipe-title'>" + data[i]['title'] + "</a>" +
                 "<div class='recipe-healthScore'>" + "HealthScore : " + data[i]["healthScore"] + "%" + "</div>" +
                 "<div class='recipe-preparationTime'>" + "Preparation time : " + data[i]["preparationTime"] + "min for " + data[i]["nbrServings"] + " persons" + "</div>" +
+                "<br>"+
                 "<div class='recipe-image'><img src='" + data[i]["image"] + "'></div>"+
+                "<br>"+
+                "<div class='recipe-delete'>" +
+                "<button class='btn-delete-recipe' onclick='deleteRecipe(" + data[i]["id"] + ")'>Delete</button>" +
+                "</div>" +
                 "<br>";
-
         }    
-        //TODO We add the event listener to the divs
-
           
     }
 }
+
+//? Function to delete a recipe from the liked list
+function deleteRecipe(id) {
+    console.log("Deleting recipe with id " + id + " ...");
+    xhr = getXmlHttpRequestObject();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 201) {
+            console.log(xhr.responseText);
+            window.location.reload();
+        }
+    }
+    xhr.open("POST", "http://localhost:6969/delete-recipe", true);
+    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhr.send(JSON.stringify({"id": id}));
+}
+
+//? Function to acces a web page who will show all informations of the recipe (from liked list of recipes)
+function showInfosRecipe(id) {
+    console.log("Id of recipe: "+id);
+    //? We redirect the user to the web page who will show all informations of the recipe and add data of the recipe into the url
+    window.location.href = "InfoRecipe.html?id=" + id + "&";
+}
+
 
 function getInfosRecipe() {
     xhr = getXmlHttpRequestObject();
