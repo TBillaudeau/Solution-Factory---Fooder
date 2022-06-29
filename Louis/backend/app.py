@@ -94,7 +94,12 @@ def get_recipe():
                 lastRecipeID = f.read()
             list_reciped_id_disliked.append(int(lastRecipeID))
             print("Added recipe to disliked list (", lastRecipeID ,"), list updated: " , list_reciped_id_disliked)
-        else:
+        elif like_or_dislike['data'] == 3:
+            #? User chosen to skip this recipe
+            with open('lastRecipeID.txt', 'r') as f:
+                lastRecipeID = f.read()
+            print("Recipe not added to any list")
+        elif like_or_dislike['data'] == 2:
             pass
             #? it's the first recipe shown to the user so we don't need to do anything here
 
@@ -183,23 +188,49 @@ def get_infos_recipe_liked():
     if request.method == "POST":
         #? We get the id
         id_recipe = request.get_json()["id"]
-        print("ID of the recipe to be shown: ",id_recipe[0])
+        id_recipe = int(id_recipe[0])
 
         #? We create a dict who will contain all the recipes infos so we can show them on the site
         recipes_infos = {}
 
         #? We now add all the infos
 
-        #TODO Not working ??...
         for index, row in df.iterrows():
-            if row['id'] == id_recipe[0]:
+            if row['id'] == id_recipe:
+                print("TITLE: ",row['title'])
                 recipes_infos = {
+                    #! ID
                     'id' : row['id'],
+                    #! Title
                     'title': row['title'],
-                    'healthScore': row['healthScore'],
-                    'preparationTime': row['readyInMinutes'], 
+                    #! Summary
+                    'summary': row['summary'],
+                    #! Dish Type
+                    'dishTypes': row['dishTypes'],
+                    #! Image
+                    'image': row['image'],
+                    #! Liste ingrédients
+                    'ingredients': row['extendedIngredients'],
+                    #! Nbr servings
                     'nbrServings': row['servings'],
-                    'image': row['image']
+                    #! Allergenes
+                    'vegan': row['vegan'],
+                    'vegetarian': row['vegetarian'],
+                    'glutenFree': row['glutenFree'],
+                    'dairyFree': row['dairyFree'],
+                    'sustainable': row['sustainable'],
+                    #! Healthscore
+                    'healthScore': row['healthScore'],
+                    #! Cooking time
+                    'cookingMinutes': row['cookingMinutes'],
+                    #! Preparation time
+                    'preparationTime': row['readyInMinutes'], 
+                    #! Temps total
+                    'totalTime': (row['cookingMinutes'] + row['readyInMinutes']),
+                    #! Etapes recette
+                    'instructions': row['instructions'],
+                    #! Prix
+                    'pricePerServing': row['pricePerServing'],
                 }
                 print("Added recipe to dict" , recipes_infos)
 
