@@ -1,5 +1,6 @@
 var xhr = null;
 
+
 getXmlHttpRequestObject = function () {
     if (!xhr) {
         // Create a new XMLHttpRequest object 
@@ -7,6 +8,7 @@ getXmlHttpRequestObject = function () {
     }
     return xhr;
 };
+
 
 //? Function who start when the page run and add all recipes
 function initListRecipes() {

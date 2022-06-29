@@ -41,6 +41,10 @@ function initRecipeInfos(){
             var div = document.getElementById("recipe-infos");
             div.innerHTML +=
                 "<div class='recipe-title'>" + data["title"] + "</div>" +
+                "<div class='recipe-summary'>" + data["summary"] + "</div>" +
+                "<div class='recipe-ingredients'>" + data["ingredients"][0]["name"] + "</div>" +
+                "<div class='recipe-ingredients'>" + data["ingredients"][0]["amount"] + "</div>" +
+                "<div class='recipe-totalTime'>" + data["totalTime"] + " minutes</div>" +
                 "<br>";
         }    
     }

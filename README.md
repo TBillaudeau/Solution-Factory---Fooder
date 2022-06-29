@@ -8,11 +8,16 @@ Fooder is a Recipe recommendation system.
 Users can swipe through thousands of recipes with a Tinder like interface and are able to save recipes to their digital cookbook.
 
 # Summary
-1. [Global description](#Globaldescription)
-2. [Prerequisite](#Prerequisite)
-3. [Installation](#Installation)
-4. [Screenshots](#Screenshots)
-5. [LICENSE](#LICENSE)
+- [Fooder - Solution Factory](#fooder---solution-factory)
+- [Summary](#summary)
+- [Global description](#global-description)
+- [Prerequisite](#prerequisite)
+- [Installation](#installation)
+      - [Back](#back)
+      - [Front](#front)
+- [Screenshots](#screenshots)
+- [Authors](#authors)
+- [LICENSE](#license)
 
 # Global description
 L'alimentation est un sujet au cœur de nombreuses
@@ -26,6 +31,7 @@ Ce projet s'inscrit dans le cadre du projet de fin de 3ème année en Data Scien
 # Prerequisite
 Make sure you have installed all of the following prerequisites on your development machine:
 
+- [Conda]("https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html")
 - [Python 3.7](https://www.python.org/downloads/)
 - [pip](https://pip.pypa.io/en/stable/)
 
@@ -36,13 +42,30 @@ Make sure you have installed all of the following prerequisites on your developm
 git clone https://github.com/TBillaudeau/Solution-Factory
 ```
 
-1. To install ISS, you first need to clone or download the project.
+2. Install dependencies
 
-2. To install ISS, you first need to clone or download the project.
+```bash
+npm install --global http-server
+```
+```bash
+pip install flask flask-cors
+```
 
-3. To install ISS, you first need to clone or download the project.
-
-4. To install ISS, you first need to clone or download the project.
+3. Tu run the website
+#### Back
+```cmd
+cd backend/
+```
+```cd
+python app.py
+```
+#### Front
+```cmd
+cd frontend/
+```
+```cmd
+http-server
+```
 
 
 # Screenshots

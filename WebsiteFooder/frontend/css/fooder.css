@@ -1,0 +1,268 @@
+
+body{
+    padding: 0;
+    margin: 0;
+}
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 13px;
+    padding-top: 12px;
+    font-size: 17px;
+
+}
+
+.logo_fooder {
+    cursor: pointer;
+}
+
+nav img{
+    width : 150px;
+    height: fit-content;
+    margin-left:2%;
+    
+}
+
+nav li{
+    list-style:none;
+    font-family: 'PT Sans Narrow', regular ;
+
+}
+
+nav button{
+    margin-right: 3%;
+    margin-top: 4px;
+    padding-bottom: 2px;
+    border:0;
+    border-radius: 8px;
+    color:white;
+    background-color:#DE0000 ;
+    font-family: 'PT Sans Narrow Bold', regular ;
+    font-weight: 700;
+    font-size: 16px;
+    width: 13%;
+
+}
+
+#nav_liste{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    width: 400px;
+    margin-top: 10px;
+}
+section{
+    padding:0;
+    margin: 0;
+    
+}
+
+p, h1{
+padding:0;
+margin: 0;
+}
+
+h1{
+    font-family: 'Amaranth';
+    font-style: normal;
+    font-size: 40px;
+    line-height:45px;
+}
+
+p{
+    font-family: 'PT Sans Narrow';
+    font-style: normal;
+    font-size: 30px;
+
+}
+
+#part1{
+    width: 100%;
+    background:url("../images/img_principale.jpg") no-repeat center center;
+    background-size: cover;
+    height: 500px;
+    padding-top: 210px;
+    padding-left: 8%;
+    
+}
+
+#part1 h1{
+    color: white;
+    padding-bottom: 45px;
+    /* border: 4px solid red; */
+}
+
+#part1 p{
+    padding-bottom: 60px;
+    color: white;
+}
+
+a {
+    color: #000000;
+    text-decoration: none;
+}
+
+#part1 button{
+    border: none;
+    padding-bottom: 2px;
+    border-radius: 8px;
+    color:white;
+    background-color:#DE0000 ;
+    font-family: 'PT Sans Narrow Bold', regular ;
+    font-weight: 700;
+    font-size: 16px;
+    width: 150px;
+    height: 40px;
+
+}
+
+footer img{
+    width : 150px;
+    height: fit-content;
+
+}
+
+footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    
+}
+
+/* Page Tinder */
+
+.profile {
+    position: absolute;
+    left:0px;
+    top:0px;
+    width:100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    cursor:pointer;
+}
+
+.profile__image {
+    height: 0;
+    padding-bottom:150%;
+    background-size: cover;
+    background-position: center center;
+    background-image: url("../images/img_principale.jpg");
+}
+
+.profile__infos {
+    padding:12px;
+    position:absolute;
+    bottom:0px;
+    background:linear-gradient(0deg, black, transparent);
+    width: 100%;
+}
+
+.profile__name {
+    color:white;
+    font-weight: bold;
+    font-size:22px;
+}
+
+.profile__age {
+    color:var(--light-grey);
+    font-weight: normal;
+}
+
+  
+.profile__description {
+    color:white;
+    font-size:13px;
+}
+  
+.tinder{
+    display: flex;
+    flex-direction: column;
+    background-color: #F9F9F9;
+    padding-top: 30px;
+    justify-content: center;
+    text-align: center;
+}
+
+.tinder >*{
+}
+
+.tinder h1{
+    margin-bottom: 40px;
+}
+
+.recipe{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    min-width:500px;
+    max-width: 700px;
+    border-radius: 12px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    cursor:pointer;
+}
+
+
+.recipe img{
+    width: 100%;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.recipe h2,.recipe p{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 0;
+    margin-top: 0;
+    text-align: left;
+
+}
+
+.recipe h2{
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-family: 'PT Sans Narrow Bold', regular ;
+    font-weight:400px;
+}
+
+.infos_titre{
+    color: #898989;
+    font-family: 'PT Sans Narrow Bold', regular ;
+    font-weight:400px;
+    font-size: 20px;
+}
+
+.recipe p{
+    margin-bottom: 20px;
+    font-family: 'PT Sans Narrow Bold', regular ;
+    font-size: 20px;
+}
+
+.bottom_buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.bottom_buttons{
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.iconify{
+    cursor: pointer;
+    box-sizing: 0px;
+    box-shadow: 0 1px 10px 0 rgba(0, 20, 20, 0.1);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 70px;
+
+}
