@@ -34,7 +34,11 @@ Make sure you have installed all of the following prerequisites on your developm
 - [Conda]("https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html")
 - [Python 3.7](https://www.python.org/downloads/)
 - [pip](https://pip.pypa.io/en/stable/)
+- [nltk](https://www.nltk.org/install.html) 
 
+    ```
+    ntlk.download()
+    ```
 # Installation
 1. To install, you first need to clone or download the project.
 
@@ -44,21 +48,12 @@ git clone https://github.com/TBillaudeau/Solution-Factory
 
 2. Install dependencies
 
-```bash
+```cmd
 npm install --global http-server
 ```
-```bash
-pip install flask flask-cors
-```
 
-3. Tu run the website
-#### Back
-```cmd
-cd backend/
-```
-```cd
-python app.py
-```
+3. Run the website
+
 #### Front
 ```cmd
 cd frontend/
@@ -66,11 +61,28 @@ cd frontend/
 ```cmd
 http-server
 ```
-
+#### Back
+```cmd
+cd backend/
+```
+```cmd
+python -m venv venv
+```
+```cmd
+venv/Scripts/activate.bat
+```
+```cmd
+pip install flask flask-cors
+```
+```cmd
+pip install pandas
+```
+```cmd
+python app.py
+```
 
 # Screenshots
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](Screenshots/swipePage.png)
 
 # Authors
 This project have been designed and developped by :
