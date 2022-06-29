@@ -41,6 +41,15 @@ df = df.loc[df['healthScore'] >= 50]
 list_recipes_id_used = []
 list_recipes_id_liked = []
 list_reciped_id_disliked = []
+
+dietaryUser = {
+    'vegetarian': False,
+    'vegan': False,
+    'sustainable': False,
+    'cheap': False,
+    'glutenFree': False,
+    'dairyFree': False,
+}
 #TODO --------------------------------------------
 
 #? We need to create an encoder in order to convert the data to json
@@ -239,6 +248,14 @@ def get_infos_recipe_liked():
 
         #? Return the data
         return flask.Response(response = return_data, status=201)
+
+
+#* Store dietary restrictions
+@app.route("/get-dietary-restrictions", methods=["GET" , "POST"])
+def get_dietary_restrictions():
+    if request.method == "POST":
+        pass
+
 
 #? Run Flask App
 if __name__ == "__main__":
