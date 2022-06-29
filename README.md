@@ -28,8 +28,6 @@ Make sure you have installed all of the following prerequisites on your developm
 
 - [Python 3.7](https://www.python.org/downloads/)
 - [pip](https://pip.pypa.io/en/stable/)
-- [pipenv](https://pipenv.pypa.io/en/latest/)
-- Install [Git](https://git-scm.com/downloads) (you can also download the project directly instead of cloning it)
 
 # Installation
 1. To install, you first need to clone or download the project.
