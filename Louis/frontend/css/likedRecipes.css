@@ -11,3 +11,11 @@ h1 {
 .container {
     text-align: center;
 }
+
+a {
+    cursor: pointer;
+}
+
+a:hover {
+    background-color: rgb(209, 123, 123);
+}
