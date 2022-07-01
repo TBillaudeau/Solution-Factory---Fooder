@@ -6,7 +6,6 @@
 
 Fooder is a Recipe recommendation system.
 
-
 # Summary
 - [Fooder - Solution Factory](#fooder---solution-factory)
 - [Summary](#summary)
@@ -19,9 +18,6 @@ Fooder is a Recipe recommendation system.
 - [Authors](#authors)
 - [LICENSE](#license)
 
-# Description projet reccommendation de recettes
-
-
 # Global description
 Food is a subject at the heart of many issues: 
 health, well-being and ecology. Fooder is a solution that suggests healthy, balanced recipes, both good and virtuous. Users can swipe through thousands of recipes with a Tinder like interface and are able to save recipes to their digital cookbook.
@@ -31,7 +27,7 @@ This project is part of the end of 3rd year project in Data Science, the Solutio
 # Prerequisite
 Make sure you have installed all of the following prerequisites on your development machine:
 
-- [Conda]("https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html")
+- [Anaconda](https://www.anaconda.com/download/)
 - [Python 3.7](https://www.python.org/downloads/)
 - [nltk](https://www.nltk.org/install.html) 
 
@@ -68,7 +64,7 @@ cd backend/
 python -m venv venv
 ```
 ```cmd
-venv/Scripts/activate.bat
+venv\Scripts\activate.bat
 ```
 ```cmd
 pip install flask flask-cors
@@ -81,8 +77,9 @@ python app.py
 ```
 
 # Screenshots
+![App Screenshot](Screenshots/mainPage.png)
 ![App Screenshot](Screenshots/swipePage.png)
-![App Screenshot](Screenshots/swipePage.png)
+![App Screenshot](Screenshots/descriptionPage.png)
 
 # Authors
 This project have been designed and developped by :
