@@ -1,11 +1,10 @@
 # Fooder - Solution Factory
 
-![Logo](https://cdn.discordapp.com/attachments/980840788332253184/988739618197364736/logo_colore_blanc.png)
+![Logo](Screenshots/fooder_logo.png)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Fooder is a Recipe recommendation system.
-Users can swipe through thousands of recipes with a Tinder like interface and are able to save recipes to their digital cookbook.
 
 # Summary
 - [Fooder - Solution Factory](#fooder---solution-factory)
@@ -13,31 +12,27 @@ Users can swipe through thousands of recipes with a Tinder like interface and ar
 - [Global description](#global-description)
 - [Prerequisite](#prerequisite)
 - [Installation](#installation)
-      - [Back](#back)
-      - [Front](#front)
+        - [Back](#back)
+        - [Front](#front)
 - [Screenshots](#screenshots)
 - [Authors](#authors)
 - [LICENSE](#license)
 
 # Global description
-L'alimentation est un sujet au cœur de nombreuses
-problématiques : santé, bien être et écologie. Par exemple la
-consommation excessive de viande engendre l'émission de
-CO2 et une grande consommation d'eau.
-Proposer une solution qui suggère des recettes saines, équilibrées, à la fois bonnes et vertueuses.
+Food is a subject at the heart of many issues: 
+health, well-being and ecology. Fooder is a solution that suggests healthy, balanced recipes, both good and virtuous. Users can swipe through thousands of recipes with a Tinder like interface and are able to save recipes to their digital cookbook.
 
-Ce projet s'inscrit dans le cadre du projet de fin de 3ème année en Data Science, la Solution Factory 2022.
+This project is part of the end of 3rd year project in Data Science, the Solution Factory 2022.
 
 # Prerequisite
 Make sure you have installed all of the following prerequisites on your development machine:
 
-- [Conda]("https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html")
+- [Anaconda](https://www.anaconda.com/download/)
 - [Python 3.7](https://www.python.org/downloads/)
-- [pip](https://pip.pypa.io/en/stable/)
 - [nltk](https://www.nltk.org/install.html) 
 
     ```
-    ntlk.download()
+    ntlk.download() #the first time only
     ```
 # Installation
 1. To install, you first need to clone or download the project.
@@ -69,7 +64,7 @@ cd backend/
 python -m venv venv
 ```
 ```cmd
-venv/Scripts/activate.bat
+venv\Scripts\activate.bat
 ```
 ```cmd
 pip install flask flask-cors
@@ -82,7 +77,9 @@ python app.py
 ```
 
 # Screenshots
+![App Screenshot](Screenshots/mainPage.png)
 ![App Screenshot](Screenshots/swipePage.png)
+![App Screenshot](Screenshots/descriptionPage.png)
 
 # Authors
 This project have been designed and developped by :

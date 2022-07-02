@@ -1,0 +1,246 @@
+
+body{
+    padding: 0;
+    margin: 0;
+}
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 13px;
+    padding-top: 12px;
+    font-size: 17px;
+
+}
+
+nav img{
+    width : 150px;
+    height: fit-content;
+    margin-left:2%;
+    
+}
+
+nav li{
+    list-style:none;
+    font-family: 'PT Sans Narrow', regular ;
+
+}
+
+nav button{
+    margin-right: 3%;
+    margin-top: 4px;
+    padding-bottom: 2px;
+    border:0;
+    border-radius: 8px;
+    color:white;
+    background-color:#DE0000 ;
+    font-family: 'PT Sans Narrow Bold', regular ;
+    font-weight: 700;
+    font-size: 16px;
+    width: 13%;
+
+}
+
+#nav_liste{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    width: 400px;
+    margin-top: 10px;
+}
+section{
+    padding:0;
+    margin: 0;
+    
+}
+
+#partie2{  
+    display:flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+  
+}
+
+#partie2 img{
+    
+    
+    width : 50%;
+    height : 50%;   
+    margin-top: 50px;
+    padding: 40px;
+}
+
+#partie2_2{
+    margin-left:40px;
+    flex-direction:column;
+    display:flex;
+    justify-content:center;
+   
+    font-family: 'PT Sans Narrow';
+    font-size: 23px;
+
+}
+
+.p123{
+  
+    font-family: 'PT Sans Narrow';
+    font-style: normal;
+    font-size: 27px;
+
+}
+
+#partie2_2 h1{
+    
+    font-family: 'Amaranth';
+    font-style: normal;
+    font-size: 30px;
+    color : #ff0051;
+}
+
+#partie2_2 h2{
+    
+    font-family: 'Amaranth';
+    font-style: normal;
+    font-size: 23px;
+    color : #ff0051;
+}
+#partie2_2 h3{
+    
+    font-family: 'Amaranth';
+    font-style: normal;
+    font-size: 23px;
+    color : #ff0051;
+}
+#partie2_2 h4{
+    
+    font-family: 'Amaranth';
+    font-style: normal;
+    font-size: 23px;
+    color : #ff0051;
+}
+
+
+#part3 h5{
+    margin-left: 5%;
+    font-family: 'PT Sans Narrow';
+    font-style: normal;
+    font-size: 27px;
+    
+}
+
+footer img{
+    width : 150px;
+    height: fit-content;
+
+}
+.trait{
+    border-bottom:3px coral solid;
+    margin-left: 30px;
+    margin-right: 30px;
+    
+}
+
+/*Image fooder*/
+img{
+    width : 200px;   
+   
+}
+
+.centrer {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+/* Bordered form */
+.prep_time h1{
+    margin: 0 auto;
+    padding-top: 10px;
+    list-style:none;
+    font-family: 'PT Sans Narrow', regular ;
+    text-align: center;
+    font-size: 20px;
+    padding-bottom: 10px;
+
+}
+.prep_time h2{
+    padding-bottom: 20px;
+    list-style:none;
+    font-family: 'PT Sans Narrow', regular ;
+    font-size: 20px;
+}
+
+.prep_time h3{
+    margin-left:10%;
+    list-style:none;
+    font-family: 'PT Sans Narrow', regular ;
+    font-size: 20px;
+}
+.countener{
+    display: flex;
+    justify-content: center;
+    padding-top:40px;
+}
+.prep_time{
+    
+    align-self:center ;
+    width: 400px;
+    display:flex;
+    flex-direction: column;
+    background:  grey(100, 25, 25);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    border-radius: 10px;
+
+}
+.info_prep{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+}
+
+footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+#part4 h1{
+    display: flex;
+    justify-content: center;
+    font-family: 'Amaranth';
+    font-style: normal;
+    font-size: 30px;
+    color : #ff0051;
+}
+#part4 h2{
+    display: flex;
+    justify-content: center;
+    font-family: 'Amaranth';
+    font-style: normal;
+    font-size: 23px;
+    color : #ff0051;
+}
+#part4 h3{
+    display: flex;
+    justify-content: center;
+    font-family: 'Amaranth';
+    font-style: normal;
+    font-size: 23px;
+    color : #ff0051;
+}
+#part4 h4{
+    display: flex;
+    justify-content: center;
+    font-family: 'Amaranth';
+    font-style: normal;
+    font-size: 23px;
+    color : #ff0051;
+}
+
+.p4_2_2{
+    display: flex;
+    justify-content: center;    
+}
