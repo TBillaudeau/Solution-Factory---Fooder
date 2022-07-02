@@ -254,7 +254,23 @@ def get_infos_recipe_liked():
 @app.route("/get-dietary-restrictions", methods=["GET" , "POST"])
 def get_dietary_restrictions():
     if request.method == "POST":
-        pass
+        #? Retrieve the data
+        dietary = request.get_json()
+
+        #? Update the dietary stored of the user so we can filter the recipes
+        dietaryUser['vegetarian'] = dietary['vegetarian']
+        dietaryUser['vegan'] = dietary['vegan']
+        dietaryUser['sustainable'] = dietary['sustainable']
+        dietaryUser['cheap'] = dietary['cheap']
+        dietaryUser['glutenFree'] = dietary['glutenFree']
+        dietaryUser['dairyFree'] = dietary['dairyFree']
+
+        #? Return confirmation
+        return flask.Response(response = "Dietary updated", status=201)
+
+
+
+
 
 
 #? Run Flask App

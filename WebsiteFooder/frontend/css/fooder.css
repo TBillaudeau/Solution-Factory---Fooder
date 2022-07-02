@@ -75,7 +75,6 @@ p{
     font-family: 'PT Sans Narrow';
     font-style: normal;
     font-size: 30px;
-
 }
 
 #part1{
@@ -101,6 +100,11 @@ p{
 
 a {
     color: #000000;
+    text-decoration: none;
+}
+
+button a {
+    color: #ffffff;
     text-decoration: none;
 }
 
