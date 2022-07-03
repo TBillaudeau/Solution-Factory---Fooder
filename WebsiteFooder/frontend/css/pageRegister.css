@@ -84,3 +84,19 @@ input[type=submit]:hover {
     color: #000000;
     border: 1px solid #000000   ;
 }
+
+button {
+    background-color: #000000;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 10px;
+}
+button:hover {
+    background-color: white;
+    color: #000000;
+    border: 1px solid #000000   ;
+}

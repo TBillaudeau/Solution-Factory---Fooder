@@ -269,7 +269,41 @@ def get_dietary_restrictions():
         #? Return confirmation
         return flask.Response(response = "Dietary updated", status=201)
 
+#! Register a user
+@app.route("/register-user", methods=["POST"])
+def register_user():
+    if request.method == "POST":
+        print("User asked to register: " , request.get_json())
 
+        #? Retrieve the data
+        userInfos = request.get_json()
+
+        #? Open the json file and add it to a DF
+        df = pd.read_json('user.json', orient='records')
+
+        #? add a new row to the dataframe with entries from the user
+        new_row = {
+            "Name": userInfos['firstName'],
+            "LastName": userInfos['lastName'],
+            "BirthDay": userInfos['birthdate'], 
+            "Email": userInfos['email'], 
+            "Password": userInfos['password'],
+            "LikedRecipes": [],
+            "UnlikedRecipes": [],
+            "Vegetarian": False,
+            "Vegan": False,
+            "EcoFriendly": False,
+            "VeryHealthy": False,
+            "GlutenFree": False,
+            "DairyFree": False,
+        }
+        df = df.append(new_row, ignore_index=True)
+
+        #? Save the dataframe into the json file
+        df.to_json('user.json')
+
+        #? Return confirmation
+        return flask.Response(response = "success", status=201)
 
 
 

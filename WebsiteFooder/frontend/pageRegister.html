@@ -15,34 +15,34 @@
 
         <div id="container">
             
-            <form method="POST">
+            <form>
 
-                
                 <img src="images/logo_colore.png" alt="logo" class="centrer" onClick="location.href='index.html'">
                 
                 <h1>Are you hungry and want to have recipes adapted to your preferences ? Join us !</h1>
 
                 <label><b>First name</b></label>
-                <input type="text" placeholder="Your first name" name="firstname" required>
+                <input type="text" placeholder="Your first name" id="firstname" required>
 
                 <label><b>Last name</b></label>
-                <input type="text" placeholder="Your last name" name="lastname" required>
+                <input type="text" placeholder="Your last name" id="lastname" required>
 
                 <label><b>Birth date</b></label>
-                <input type="text" placeholder="Your date of birth" name="birthdate" required>
+                <input type="text" placeholder="Your date of birth" id="birthdate" required>
 
                 <label><b>Email</b></label>
-                <input type="text" placeholder="Your email" name="email" required>
+                <input type="text" placeholder="Your email" id="email" required>
 
                 <label><b>Password</b></label>
-                <input type="password" placeholder="Your passeword (ex: 1234)" name="password" required>
+                <input type="password" placeholder="Your passeword (ex: 1234)" id="password" required>
 
                 <label><b>Password validation</b></label>
-                <input type="password" placeholder="Password confirmation" name="passwordconfirmation" required>
+                <input type="password" placeholder="Password confirmation" id="passwordconfirmation" required>
 
                 <h2>By creating your account, you agree to abide by Fooder's Privacy Policy and Terms and Conditions.</h2>
 
-                <input type="submit" id='submit' value='Join us !' >
+                <!-- <input type="submit" id='submit' value='Join us !' onclick="registerUser()"> -->
+                <button id='submit' onclick="registerUser()">Join us !</button>
             
             </form>
         </div>
