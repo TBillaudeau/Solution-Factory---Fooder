@@ -64,10 +64,10 @@ set-executionpolicy unrestricted #In case windows restrict the command
 cd backend/
 ```
 ```cmd
-python -m venv venv
+python -m venv venv #(maybe you don't need it)
 ```
 ```cmd
-venv\Scripts\activate.bat
+venv\Scripts\activate.bat #(maybe you don't need it)
 ```
 ```cmd
 pip install flask flask-cors
