@@ -12,37 +12,42 @@
         <div id="background">
 
         </div>
+
         <div id="container">
             
-            <form onsubmit="return registerUser(this)">
+            <form method="POST">
 
                 
-                <img src="images/logo_colore.png" alt="logo" class="centrer">
+                <img src="images/logo_colore.png" alt="logo" class="centrer" onClick="location.href='index.html'">
                 
-                <h1>Vous avez faim et vous souhaitez avoir des recettes adaptées à vos préférences? Rejoignez-nous?</h1>
+                <h1>Are you hungry and want to have recipes adapted to your preferences ? Join us !</h1>
 
-                <label><b>Prénom d'utilisateur</b></label>
-                <input type="text" placeholder="Entrer le prénom d'utilisateur" name="userfirstname" required>
+                <label><b>First name</b></label>
+                <input type="text" placeholder="Your first name" name="firstname" required>
 
-                <label><b>Nom d'utilisateur</b></label>
-                <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
+                <label><b>Last name</b></label>
+                <input type="text" placeholder="Your last name" name="lastname" required>
 
-                <label><b>Adresse mail</b></label>
-                <input type="text" placeholder="Entrer votre adresse mail" name="email" required>
+                <label><b>Birth date</b></label>
+                <input type="text" placeholder="Your date of birth" name="birthdate" required>
 
-                <label><b>Mot de passe</b></label>
-                <input type="password" placeholder="Entrer le mot de passe" name="password" required>
+                <label><b>Email</b></label>
+                <input type="text" placeholder="Your email" name="email" required>
 
-                <label><b>Confirmation du mot de passe</b></label>
-                <input type="password" placeholder="Confirmer votre mot de passe" name="passwordconfirmation" required>
+                <label><b>Password</b></label>
+                <input type="password" placeholder="Your passeword (ex: 1234)" name="password" required>
 
-                <h2>En créant votre compte, vous acceptez de vous conformer à la Politique de Confidentialité et aux Conditions générales de Fooder.</h2>
+                <label><b>Password validation</b></label>
+                <input type="password" placeholder="Password confirmation" name="passwordconfirmation" required>
 
-                <input type="submit" id='submit' value='Rejoingnez nous' >
+                <h2>By creating your account, you agree to abide by Fooder's Privacy Policy and Terms and Conditions.</h2>
+
+                <input type="submit" id='submit' value='Join us !' >
             
             </form>
         </div>
     </body>
+
     <script src="js/pageRegister.js"></script>
 </html>
 

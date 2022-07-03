@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 
 <html lang="en">
 
@@ -56,6 +56,102 @@
 
             
         </main>
+
+        <footer>
+            <img src="images/logo_colore.png" alt="logo" class="logo_fooder" onClick="location.href='index.html'"/>
+        </footer>
+          
+    </body>
+
+    <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+    <script type="text/javascript" src="js/pageFooder.js"></script>
+</html> -->
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Fooder</title>
+
+        <link rel="stylesheet" href="css/fooder.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Amaranth:wght@700&display=swap" rel="stylesheet">
+
+        
+    </head>
+
+    <body onload="">
+
+        <nav>
+            <img src="images/logo_colore.png" alt="logo" class="logo_fooder" onClick="location.href='index.html'"/>
+            <div id="nav_liste">
+                <li><a href="pageFooder.html">Choose your recipe !</a></li>
+                <li><a href="pageRecipesLiked.html">Recipes liked </a></li>
+                <li><a href="pageCompte.html">My account</a></li>
+            </div>
+            <button type="button"><a href="pageRegister.html">Sign up</a> / <a href="pageLogin.html">Log in</a></button>
+        </nav>
+
+        <section class="choix">
+            <div class="preferences">
+                <h1>Choose your food preferences !</h1>
+                <h2>Your choice will apply to all meals (breakfast, meal, snack, etc.)</h2>
+                
+                <div class = "liste_preferences">
+                    <div class="preference" style="background-image: url('images/vegetarien.jpg'),linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))">
+                        <p>Vegetarian</p>
+                    </div>
+
+                    <div class="preference" style="background-image: url('images/vegan.jpg'),linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))">
+                        <p>Vegan</p>
+                    </div>
+
+                    <div class="preference" style="background-image: url('images/eco_responsable.jpg'),linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))">
+                        <p>Eco friendly</p>
+                    </div>
+
+                    <div class="preference" style="background-image: url('images/saine.jpg'),linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))">
+                        <p>Very healthy</p>
+                    </div>
+
+                    <div class="preference" style="background-image: url('images/buffet1.jpg'),linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))">
+                        <p>No preferences</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="intolerances">
+                <h1>What are your food intolerances?</h1>
+
+                <div class = "liste_intolerances">
+                    <div class="intolerance" style="background-image: url('images/gluten.jpg'),linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))">
+                        <p>Gluten</p>
+                    </div>
+
+                    <div class="intolerance" style="background-image: url('images/lait.jpg'),linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))">
+                        <p>Milk</p>
+                    </div>
+
+                    <div class="intolerance" style="background-image: url('images/buffet2.jpg'),linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))">
+                        <p>No intolerances</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="boutons_choix">
+                <button type="button">Erase</button>
+                <button type="button">Validate</button>
+            </div>
+            
+        </section>
 
         <footer>
             <img src="images/logo_colore.png" alt="logo" class="logo_fooder" onClick="location.href='index.html'"/>

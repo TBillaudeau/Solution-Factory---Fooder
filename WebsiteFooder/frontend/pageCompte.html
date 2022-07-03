@@ -23,18 +23,62 @@
         <nav>
             <img src="images/logo_colore.png" alt="logo" class="logo_fooder" onClick="location.href='index.html'"/>
             <div id="nav_liste">
-                <li><a href="pageFooder.html">Choisir une recette</a></li>
-                <li><a href="pageRecipesLiked.html">Recettes likées</a></li>
-                <li><a href="pageAccount.html">Mon compte</a></li>
+                <li><a href="pageFooder.html">Choose your recipe !</a></li>
+                <li><a href="pageRecipesLiked.html">Recipes liked </a></li>
+                <li><a href="pageCompte.html">My account</a></li>
             </div>
-            <button type="button">S'inscrire</button>
+            <button type="button"><a href="pageRegister.html">Sign up</a> / <a href="pageLogin.html">Log in</a></button>
         </nav>
 
         <main class="">
-            <h1>Mon compte</h1>
-
-            <a href="pageDietary.html">Préférences alimentaires</a>
-
+            <div id="fond_compte">
+                <img src="images/Fond_compte.jpg" alt="" >
+            </div>
+            <section class="compte">
+                <h1>My account</h1>
+                <div class="my_details">
+                    <h2>My details</h2>
+                    <h3>Personal information</h3>
+                    <div class="trait"></div>
+    
+                    <form action="" method="get">
+                        <div class="formulaire">
+                            <div class="left_column">
+                                <label for="first_name">First name</label>
+                                <input type="text" id="first_name" value="Jean-Paul">
+                            
+                                <label for="date_of_birth">Date of birth</label>
+                                <input type="date" id="first_name" value="1901-05-12">
+                            
+                                <label for="password">Password</label>
+                                <input type="password" id="password" value="Prout">
+    
+                            </div>
+                        
+    
+                            <div class="right_column">
+                                <label for="last_name">Last name</label>
+                                <input type="text" id="last_name"  value="Bernard">
+        
+                                <label for="email_adress">Email adress</label>
+                                <input type="email" id="email_adress" value="jeanpopaul@gmail.com">
+    
+                            </div>
+                        </div>
+                        
+                        <input type="submit" value="Save" class="submit">
+                    </form>
+                
+                    <div class="preference_compte">
+                        <h3>Preferences and Allergies</h3>
+                        <div class="trait"></div>
+                        <p><span>Preferences : </span>Vegan, Healthy</p>
+                        <p><span>Allergies : </span>Milk</p>
+                        <button type="button" onclick="location.href='pageDietary.html'">Change preferences</button>
+                    </div>
+                    
+                </div>
+            </section>
 
             
         </main>
@@ -46,5 +90,5 @@
     </body>
 
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
-    <script type="text/javascript" src="js/pageFooder.js"></script>
+    <script type="text/javascript" src="js/pageCompte.js"></script>
 </html>

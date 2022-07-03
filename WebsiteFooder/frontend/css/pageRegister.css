@@ -10,7 +10,7 @@
 #background {
     filter: blur(16px); 
     width: 100%;
-    background:url("images/img_principale.jpg") no-repeat center center;
+    background:url("../images/img_principale.jpg") no-repeat center center;
     background-size: cover;
     height: 100%;
     position: absolute; 
@@ -19,7 +19,7 @@
 /*Image fooder*/
 img{
     width : 200px;   
-   
+    cursor: pointer;
 }
 
 .centrer {

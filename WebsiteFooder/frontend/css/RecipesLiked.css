@@ -113,6 +113,11 @@ nav button{
 
 /*meal CSS*/
 
+/* .boxs{
+    display:flex;
+    flex-wrap: wrap;
+} */
+
 .meal {
     margin: 100px 0;
 }
