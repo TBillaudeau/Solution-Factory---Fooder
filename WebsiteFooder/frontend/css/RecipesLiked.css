@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'PT Sans Narrow';
+}
+html {
+    font-size: 62.5%;
+}
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #999;
+    border-radius: 6px;
+}
+
+a {
+    color: #000000;
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+button a {
+    color: #ffffff;
+    text-decoration: none;
+}
+/*nav*/
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 13px;
+    padding-top: 12px;
+    font-size: 17px;
+
+}
+
+nav img{
+    width : 150px;
+    height: fit-content;
+    margin-left:2%;
+    
+}
+
+nav li{
+    list-style:none;
+    font-family: 'PT Sans Narrow', regular ;
+
+}
+
+nav button{
+    margin-right: 3%;
+    margin-top: 4px;
+    padding-bottom: 2px;
+    border:0;
+    border-radius: 8px;
+    color:white;
+    background-color:#DE0000 ;
+    font-family: 'PT Sans Narrow Bold', regular ;
+    font-weight: 700;
+    font-size: 16px;
+    width: 13%;
+
+}
+
+#nav_liste{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    width: 400px;
+    margin-top: 10px;
+}
+/*part 3 + trait*/
+
+#part3 h5{
+    margin-left: 5%;
+    font-family: 'PT Sans Narrow';
+    font-style: normal;
+    font-size: 27px;
+    
+}
+.trait{
+    border-bottom:3px coral solid;
+    margin-left: 30px;
+    margin-right: 30px;
+    
+}
+/*banner CSS*/
+
+.banner {
+    text-align: center;
+    margin: 50px 0;
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(../images/img3.jpg);
+    background-position: center;
+    background-size: cover;
+    padding: 100px;
+}
+.banner h1 {
+    color: #f46a06;
+    font-size: 30px
+}
+.banner p {
+    font-size: 15px;
+    padding: 5px 0;
+    color: #fff;
+}
+
+/*meal CSS*/
+
+.meal {
+    margin: 100px 0;
+}
+.meal .top {
+    text-align: center;
+}
+.meal .top h1 {
+    font-size: 30px;
+    padding: 15px 0;
+}
+.meal .top p {
+    color: #555555;
+    font-size: 14px;
+    padding: 5px 0;
+}
+.meal .bottom {
+  margin: 60px 12%;
+  display: flex;
+  justify-content: space-between;
+
+}
+.meal .bottom .box {
+    text-align: center;
+    width: 30%;
+}
+.meal .bottom .box img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.meal .bottom .box h4 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+.meal .bottom .box p {
+    margin: 5px 0;
+    font-size: 12px;
+    color: #999;
+}
+
+.meal .bottom .box span {
+    font-size: 25px;
+    color: #f46a06;
+}
+.meal .bottom .box button {
+    background-color: #f46a06;
+    border: 0;
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+    padding: 5px ;
+    display: flex;
+}
+.meal .bottom .box button a {
+    color: #fff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    margin:  0 auto;
+}
+.menu_toggle  {
+    display: none;
+}
+
+/* Full-width inputs */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+/* Set a style for all buttons */
+input[type=submit] {
+    background-color: #000000;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    margin-left: 44%;
+    border-radius: 10px;
+}
+input[type=submit]:hover {
+    background-color: white;
+    color: #000000;
+    border: 1px solid #000000   ;
+}
+/*footer*/
+footer img{
+    width : 150px;
+    height: fit-content;
+
+}
+
+footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+/*Responsive*/
+@media (max-width:739px) {
+    .banner {
+        padding: 100px 20px;
+    }
+    .banner h1 {
+        font-size: 18px;
+    }
+    .banner p {
+        font-size: 12px;
+    }
+    .meal .top h1 {
+      font-size: 20px;
+
+    }
+    .meal .top p {
+        display: none;
+    }
+}
+
+/*Responsive box meal*/
+@media (max-width:634px) {
+    .meal .bottom {
+        flex-direction: column;
+    }
+    .meal .bottom .box {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+}

@@ -44,17 +44,14 @@ function addInfosRecipe() {
             console.log("Adding recipe " + i + " informations ...");
             var div = document.getElementById("recipes-container");
             div.innerHTML +=
-                "<br>" +
-                "<a onclick='showInfosRecipe("+ data[i]['id'] +")' class='recipe-title'>" + data[i]['title'] + "</a>" +
-                "<div class='recipe-healthScore'>" + "HealthScore : " + data[i]["healthScore"] + "%" + "</div>" +
-                "<div class='recipe-preparationTime'>" + "Preparation time : " + data[i]["preparationTime"] + "min for " + data[i]["nbrServings"] + " persons" + "</div>" +
-                "<br>"+
-                "<div class='recipe-image'><img src='" + data[i]["image"] + "'></div>"+
-                "<br>"+
-                "<div class='recipe-delete'>" +
-                "<button class='btn-delete-recipe' onclick='deleteRecipe(" + data[i]["id"] + ")'>Delete</button>" +
-                "</div>" +
-                "<br>";
+                "<div class='box'> " +
+                "<img src='" + data[i]["image"] + "'>" +
+                "<h4>"+ data[i]['title'] +"</h4>" +
+                "<p>Preparation time : " + data[i]["preparationTime"] + "min for " + data[i]["nbrServings"] + " persons</p>" +
+                "<p>HealthScore : " + data[i]["healthScore"] + "%</p>" +
+                "<span>"+ data[i]['price'] +" cents</span>" +
+                "<button onclick='showInfosRecipe("+ data[i]['id'] +")'>To know more about</button>" +
+                "</div>";
         }    
           
     }

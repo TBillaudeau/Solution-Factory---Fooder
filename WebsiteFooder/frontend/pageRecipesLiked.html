@@ -1,4 +1,4 @@
-<html>
+<!-- <html>
 
 <header>
     <meta charset="UTF-8">
@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fooder</title>
 
-    <!-- Include css -->
     <link rel="stylesheet" href="css/likedRecipes.css">
 </header>
 
@@ -20,12 +19,81 @@
         </div>
 
         <div id="recipes-container">
-            <!-- Contain the list of liked recipes -->
 
             
         </div>
     </div>
     
+
+</body>
+
+<script type="text/javascript" src="js/likedRecipes.js"></script>
+
+
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fooder</title>
+    <link rel="stylesheet" href="css/RecipesLiked.css">
+</head>
+
+<body onload="initListRecipes()">
+    <nav>
+        <img src="images/logo_colore.png" alt="logo" class="logo_fooder" onClick="location.href='index.html'"/>
+        <div id="nav_liste">
+            <li><a href="pageFooder.html">Choose your recipe !</a></li>
+            <li><a href="pageRecipesLiked.html">Recipes liked </a></li>
+            <li><a href="pageCompte.html">My account</a></li>
+        </div>
+        <button type="button"><a href="pageRegister.html">Sign up</a> / <a href="pageLogin.html">Log in</a></button>
+    </nav>
+
+    <!-- banner -->
+
+    <div class="banner">
+        <h1>When a man's stomach is full, <br> it does not matter whether he is rich or poor.</h1>
+        <p>Eat at least 5 fruits and vegetables a day.</p>
+        <p>For example 3 portions of vegetables and 2 fruits.</p>
+    </div>
+    <div id="part3">
+        <h5>Your recipes<br></h5>
+    </div>
+
+    <div class="trait ">
+
+    </div>
+
+    <!-- list meal -->
+
+    <div class="meal">
+       
+
+        <div class="bottom" id="recipes-container">
+
+        </div>
+
+    </div>
+    <div class="a">
+
+    </div>
+
+    <input type="submit" id='submit' value='add a recipies' onclick="window.location.href = 'pageFooder.html';">
+
+    </div>
+    <div class="trait ">
+
+    </div>
+
+    <footer>
+        <img src="images/logo_colore.png" alt="logo" class="logo_fooder" onClick="location.href='index.html'"/>
+    </footer>
 
 </body>
 

@@ -164,7 +164,8 @@ def get_infos_recipe():
                     'healthScore': row['healthScore'],
                     'preparationTime': row['readyInMinutes'], 
                     'nbrServings': row['servings'],
-                    'image': row['image']
+                    'image': row['image'],
+                    'price': row['pricePerServing']
                 }
                 print("Added recipe to dict" , recipes_infos)
                 i += 1

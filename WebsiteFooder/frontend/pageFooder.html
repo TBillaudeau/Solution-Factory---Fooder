@@ -23,25 +23,31 @@
         <nav>
             <img src="images/logo_colore.png" alt="logo" class="logo_fooder" onClick="location.href='index.html'"/>
             <div id="nav_liste">
-                <li><a href="pageFooder.html">Choisir une recette</a></li>
-                <li><a href="pageRecipesLiked.html">Recettes likées</a></li>
-                <li><a href="pageCompte.html">Mon compte</a></li>
+                <li><a href="pageFooder.html">Choose your recipe !</a></li>
+                <li><a href="pageRecipesLiked.html">Recipes liked </a></li>
+                <li><a href="pageCompte.html">My account</a></li>
             </div>
-            <button type="button">S'inscrire</button>
+            <button type="button"><a href="pageRegister.html">Sign up</a> / <a href="pageLogin.html">Log in</a></button>
         </nav>
 
         <main class="tinder">
 
-            <h1>Choisis les recettes savoureuses qui te plaisent !</h1>
+            <h1>Choose the tasty recipes that you like!</h1>
                     
             <div class="recipe">
                 <img src="https://i0.wp.com/gifimage.net/wp-content/uploads/2018/04/loading-icon-gif-6.gif?resize=650,400" id="image-container">
                 <h2><span id="title-container"></span> <span class="infos_titre">, HealthScore : </span> <span id="healthScore-container" class="infos_titre"></span> <span class="infos_titre"> %</span></h2>
             </div>
             <div class="bottom_buttons">
-                <span class="iconify" data-icon="gridicons:cross" style="color: #de0000;width:60px;height: 60px;margin-right: 40px;" onclick="getInfos(0)"></span>
-                <span class="iconify" data-icon="la:equals" style="color: #fa9c2d;width:64px;height: 64px;margin-top: 15px;" onclick="getInfos(3)"></span>
-                <span class="iconify" data-icon="clarity:heart-solid" style="color: #4ecb71;width:54px;height: 54px;margin-left: 40px;" onclick="getInfos(1)"></span>
+                <div class="cross">
+                    <span class="iconify" data-icon="gridicons:cross" style="color: #de0000;width:60px;height: 60px;" onclick="getInfos(0)"></span>
+                </div>
+                <div class="equal">
+                    <span class="iconify" data-icon="la:equals" style="color: #fa9c2d;width:64px;height: 64px;margin-top: 15px;" onclick="getInfos(3)"></span>
+                </div>
+                <div class="heart">
+                    <span class="iconify" data-icon="clarity:heart-solid" style="color: #4ecb71;width:54px;height: 54px;" onclick="getInfos(1)"></span>
+                </div>
             </div>
             
         </main>
