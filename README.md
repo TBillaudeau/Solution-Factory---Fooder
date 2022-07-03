@@ -32,7 +32,7 @@ Make sure you have installed all of the following prerequisites on your developm
 - [nltk](https://www.nltk.org/install.html) 
 
     ```
-    ntlk.download() #the first time only
+    ntlk.download() #the first time only (maybe you don't need it)
     ```
 # Installation
 1. To install, you first need to clone or download the project.
@@ -56,15 +56,18 @@ cd frontend/
 ```cmd
 http-server
 ```
+```cmd
+set-executionpolicy unrestricted #In case windows restrict the command
+```
 #### Back
 ```cmd
 cd backend/
 ```
 ```cmd
-python -m venv venv
+python -m venv venv #(maybe you don't need it)
 ```
 ```cmd
-venv\Scripts\activate.bat
+venv\Scripts\activate.bat #(maybe you don't need it)
 ```
 ```cmd
 pip install flask flask-cors
