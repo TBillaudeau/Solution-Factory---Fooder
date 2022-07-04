@@ -1,0 +1,21 @@
+
+
+h1 {
+    font-size: 4em;
+    font-weight: bold;
+    margin: 0 0 0.6em 0;
+    text-align: center;
+    color: rgb(253, 58, 115);
+}
+
+.container {
+    text-align: center;
+}
+
+a {
+    cursor: pointer;
+}
+
+a:hover {
+    background-color: rgb(209, 123, 123);
+}
