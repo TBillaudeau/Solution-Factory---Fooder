@@ -451,11 +451,16 @@ def recommandation_par_preference(df_reco,pref : list, dislike: list,nb_recomman
     tab=np.array([0  for i in range(100)])
     for i in pref:
         index = data.index[data['id'] == i].tolist()[0]
-        tab = np.add(tab,np.array(similarity[index]))
+        tab = np.add(tab,np.array(similarity[index-1]))
         
     for j in dislike:
         index = data.index[data['id'] == j].tolist()[0]
-        tab = np.add(tab,np.array(distance[index]))
+        tab = np.add(tab,np.array(distance[index-1]))
+    
+    pref = [data.index[data['id'] == i].tolist()[0]-1 for i in pref]
+    dislike = [data.index[data['id'] == i].tolist()[0]-1 for i in dislike]
+    tab = np.delete(tab, pref)
+    tab = np.delete(tab, dislike)
 
     indices_ascending=(np.argsort(tab))
     indices_descending=indices_ascending[::-1]
@@ -500,8 +505,11 @@ def get_recipe_reco():
         id_recipe_reco = recommandation_par_preference(df_reco,list_recipes_id_liked, list_reciped_id_disliked,nb_recommandations=1)
         print("Received recipe id from reco system: ", id_recipe_reco)
 
-        recipe_reco = df.loc[id_recipe_reco]
+        #recipe_reco = df.loc[id_recipe_reco]
+        recipe_reco = df[df['id']==id_recipe_reco]
+        print("Received recipe from reco system: ", recipe_reco)
 
+        print(recipe_reco['title'].values)
         this_title = recipe_reco['title'].values[0]
         print("Title: ",this_title)
         this_image = recipe_reco['image'].values[0]
