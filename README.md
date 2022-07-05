@@ -33,7 +33,7 @@ Make sure you have installed all of the following prerequisites on your developm
 - [nltk](https://www.nltk.org/install.html) 
 
     ```
-    ntlk.download() #the first time only (maybe you don't need it)
+    ntlk.download() #the first time only
     ```
 # Installation
 1. To install, you first need to clone or download the project.
