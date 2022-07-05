@@ -30,9 +30,10 @@
             <button type="button"><a href="pageRegister.html">Sign up</a> / <a href="pageLogin.html">Log in</a></button>
         </nav>
 
-        <main class="tinder">
+        <main class="tinder" id="page-reco">
 
             <h1>Choose the tasty recipes that you like!</h1>
+            <h2 class="animate-charcter">with recommendation system !</h2>
                     
             <div class="recipe">
                 <img src="https://i0.wp.com/gifimage.net/wp-content/uploads/2018/04/loading-icon-gif-6.gif?resize=650,400" id="image-container">
@@ -40,16 +41,15 @@
             </div>
             <div class="bottom_buttons">
                 <div class="cross">
-                    <span class="iconify" data-icon="gridicons:cross" style="color: #de0000;width:60px;height: 60px;" onclick="getInfos(0)"></span>
+                    <span class="iconify" data-icon="gridicons:cross" style="color: #de0000;width:60px;height: 60px;" onclick="getInfosReco(0)"></span>
                 </div>
                 <div class="equal">
-                    <span class="iconify" data-icon="la:equals" style="color: #fa9c2d;width:64px;height: 64px;margin-top: 15px;" onclick="getInfos(3)"></span>
+                    <span class="iconify" data-icon="la:equals" style="color: #fa9c2d;width:64px;height: 64px;margin-top: 15px;" onclick="getInfosReco(3)"></span>
                 </div>
                 <div class="heart">
-                    <span class="iconify" data-icon="clarity:heart-solid" style="color: #4ecb71;width:54px;height: 54px;" onclick="getInfos(1)"></span>
+                    <span class="iconify" data-icon="clarity:heart-solid" style="color: #4ecb71;width:54px;height: 54px;" onclick="getInfosReco(1)"></span>
                 </div>
             </div>
-            <button type="button" class="reco"><a href="pageReco.html">Recommendation system</a></button>
         </main>
 
         <footer>

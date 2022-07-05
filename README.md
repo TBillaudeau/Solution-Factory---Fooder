@@ -12,10 +12,11 @@ Fooder is a Recipe recommendation system.
 - [Global description](#global-description)
 - [Prerequisite](#prerequisite)
 - [Installation](#installation)
-        - [Back](#back)
-        - [Front](#front)
+      - [Front](#front)
+      - [Back](#back)
 - [Screenshots](#screenshots)
 - [Authors](#authors)
+- [Credits](#credits)
 - [LICENSE](#license)
 
 # Global description
@@ -82,7 +83,7 @@ python app.py
 # Screenshots
 ![App Screenshot](Screenshots/mainPage.png)
 ![App Screenshot](Screenshots/swipePage.png)
-![App Screenshot](Screenshots/descriptionPage.png)
+![App Screenshot](Screenshots/InfoRecipes.png)
 
 # Authors
 This project have been designed and developped by :
@@ -92,6 +93,10 @@ This project have been designed and developped by :
 - `Eva Chambaron`
 - `Hugo Nahon--Bernical`
 - `Marc Bernard`
+
+# Credits
+This project could not have been possible without the Spoonacular API.
+* [Spoonacular](https://spoonacular.com/)
 
 # LICENSE
 [MIT](https://choosealicense.com/licenses/mit/)

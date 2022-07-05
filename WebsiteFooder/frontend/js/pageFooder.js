@@ -65,3 +65,14 @@ function getInfos(like_or_dislike) {
     // Send the request over the network
     xhr.send(JSON.stringify({"data": like_or_dislike}));
 }
+
+function getInfosReco(like_or_dislike) {
+    likeORdislike(like_or_dislike);
+    xhr = getXmlHttpRequestObject();
+    xhr.onreadystatechange = addInfos;
+    // asynchronous requests
+    xhr.open("POST", "http://localhost:6969/get-recipe-reco", true);
+    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    // Send the request over the network
+    xhr.send(JSON.stringify({"data": like_or_dislike}));
+}

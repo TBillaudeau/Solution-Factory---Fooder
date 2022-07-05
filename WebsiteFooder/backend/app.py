@@ -10,6 +10,18 @@ from flask.json import jsonify
 from flask_cors import CORS
 import pandas as pd
 import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+from math import ceil
+import re
+from sklearn.neighbors import NearestNeighbors
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.metrics.pairwise import cosine_similarity,cosine_distances
+import nltk
+from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
+from nltk.stem import PorterStemmer
 
 #! #################################
 #! Setup Flask
@@ -31,6 +43,7 @@ df = pd.read_json('recipes.json', orient='records')
 
 #? Keep only recipes with healthscore > (the value could be higher for healthier recipes but we are currently limited to the API)
 df = df.loc[df['healthScore'] >= 50]
+
 
 #! #################################
 #! Link from recipes to the webiste 
@@ -330,6 +343,191 @@ def login_user():
         else:
             #? Return error
             return flask.Response(response = "error", status=401)
+
+
+#! ###########################
+#! Recommendation system
+#! ###########################
+
+# Chargement des données & Nettoyage des données
+data = pd.read_json('recipes.json')
+data = data.dropna(axis=1)
+data = data.drop(columns=['cheap','cookingMinutes','preparationMinutes','sustainable','openLicense','analyzedInstructions','instructions'])
+
+# Nettoyage Colonne Summary
+netoyage_html = lambda x: re.sub("<.*?>", " ", x).lower()
+netoyage_ponctuation = lambda x: re.sub(r'[^\w\s]',' ',x)
+
+data['summary'] = data['summary'].apply(netoyage_html)
+data['summary'] = data['summary'].apply(netoyage_ponctuation)
+
+#Normalisation des données
+vectorizer = CountVectorizer()
+nltk.download('stopwords')
+nltk.download('wordnet')
+
+stop_words = set(stopwords.words('english')) 
+
+tokenized=word_tokenize(data["summary"][0])
+stop_words = stopwords.words('english')
+
+filtered = [word for word in tokenized if word not in stop_words]
+
+stemmer = PorterStemmer()
+filtered = [stemmer.stem(J) for J in filtered]
+' '.join(filtered)
+
+stop_words = stopwords.words('english')
+stemmer = PorterStemmer()
+preprocess = lambda x: ' '.join([stemmer.stem(word) for word in word_tokenize(x) if word not in stop_words])
+rm_digits = lambda x: ''.join([i for i in x if not i.isdigit()])
+
+data['parsed']=data['summary'].apply(preprocess)
+data['parsed']=data['summary'].apply(rm_digits)
+                       
+
+vectorizer = CountVectorizer()
+matrix=vectorizer.fit_transform(data['parsed'])
+
+vectorizer.get_feature_names()
+counts = pd.DataFrame(matrix.toarray(),columns=vectorizer.get_feature_names_out())
+
+data=data.drop(columns=['veryHealthy','veryPopular','gaps'])
+
+#One hot encoding
+joined_lists=lambda x: ','.join(x)
+
+cuis=data["cuisines"].apply(joined_lists).str.get_dummies(",")
+df_reco=pd.concat([data,cuis],axis=1)
+df_reco=df_reco.drop(columns=["cuisines"])
+
+dish=data["dishTypes"].apply(joined_lists).str.get_dummies(",")
+df_reco=pd.concat([df_reco,dish],axis=1)
+df_reco=df_reco.drop(columns=["dishTypes"])
+
+diets=data["diets"].apply(joined_lists).str.get_dummies(",")
+df_reco=pd.concat([df_reco,diets],axis=1)
+df_reco=df_reco.drop(columns=["diets"])
+
+occ=data["occasions"].apply(joined_lists).str.get_dummies(",")
+df_reco=pd.concat([df_reco,occ],axis=1)
+df_reco=df_reco.drop(columns=["occasions"])
+
+df_reco['vegetarian'] = df_reco['vegetarian'].astype(int)
+df_reco['vegan'] = df_reco['vegan'].astype(int)
+df_reco['glutenFree'] = df_reco['glutenFree'].astype(int)
+df_reco['dairyFree'] = df_reco['dairyFree'].astype(int)
+df_reco['weightWatcherSmartPoints'] = df_reco['weightWatcherSmartPoints'].astype(int)
+
+df_reco = df_reco[['vegetarian', 'vegan', 'glutenFree', 'dairyFree',
+       'weightWatcherSmartPoints', 'healthScore',
+       'pricePerServing', 'readyInMinutes',
+       'servings',
+       'American', 'Asian', 'Chinese', 'European', 'French', 'Indian',
+       'Italian', 'Jewish', 'Korean', 'Mediterranean', 'Southern',
+       'Vietnamese', 'antipasti', 'antipasto', 'appetizer', 'beverage',
+       'bread', 'breakfast', 'brunch', 'condiment', 'dessert', 'dinner', 'dip',
+       'drink', 'fingerfood', 'hor d\'oeuvre', 'lunch', 'main course',
+       'main dish', 'morning meal', 'salad', 'sauce', 'side dish', 'snack',
+       'soup', 'spread', 'starter', 'dairy free', 'fodmap friendly',
+       'gluten free', 'ketogenic', 'lacto ovo vegetarian', 'paleolithic',
+       'pescatarian', 'primal', 'vegan', 'whole 30', '4th of july',
+       'christmas', 'easter', 'fall', 'father\'s day', 'halloween', 'hanukkah',
+       'summer', 'super bowl', 'thanksgiving', 'valentine\'s day', 'winter']]
+
+
+#enlève les colonnes indentiques
+df_reco= df_reco.T.drop_duplicates().T
+
+counts=counts.drop(columns=['al','all','and','very','up','are','as','at','de','in','is','it','la','no','we','not','you','your','add','about','again'])
+
+df_reco=pd.concat([df_reco,counts],axis=1)
+
+
+def recommandation_par_preference(df_reco,pref : list, dislike: list,nb_recommandations=1):
+    similarity=cosine_similarity(df_reco)
+    distance=cosine_distances(df_reco)
+    
+    tab=np.array([0  for i in range(100)])
+    for i in pref:
+        index = data.index[data['id'] == i].tolist()[0]
+        tab = np.add(tab,np.array(similarity[index]))
+        
+    for j in dislike:
+        index = data.index[data['id'] == j].tolist()[0]
+        tab = np.add(tab,np.array(distance[index]))
+
+    indices_ascending=(np.argsort(tab))
+    indices_descending=indices_ascending[::-1]
+    return data.iloc[indices_descending[0]].id
+
+
+@app.route("/get-recipe-reco", methods=["GET" , "POST"])
+def get_recipe_reco():
+    if request.method == "GET":
+        return flask.jsonify("Please use POST method")
+    elif request.method == "POST":
+        global lastRecipeID
+        #! ---------------------
+        #! Like or Dislike ?
+        #! ---------------------
+        #? First we check if the user liked or disliked the last recipe
+        like_or_dislike = request.get_json()
+        print("DATA like: ",like_or_dislike)
+
+        if like_or_dislike['data'] == 1:
+            with open('lastRecipeID.txt', 'r') as f:
+                lastRecipeID = f.read()
+            list_recipes_id_liked.append(int(lastRecipeID))
+            print("Added recipe to liked list (", lastRecipeID ,"), list updated: " , list_recipes_id_liked)
+        elif like_or_dislike['data'] == 0:
+            with open('lastRecipeID.txt', 'r') as f:
+                lastRecipeID = f.read()
+            list_reciped_id_disliked.append(int(lastRecipeID))
+            print("Added recipe to disliked list (", lastRecipeID ,"), list updated: " , list_reciped_id_disliked)
+        elif like_or_dislike['data'] == 3:
+            #? User chosen to skip this recipe
+            with open('lastRecipeID.txt', 'r') as f:
+                lastRecipeID = f.read()
+            print("Recipe not added to any list")
+        elif like_or_dislike['data'] == 2:
+            pass
+            #? it's the first recipe shown to the user so we don't need to do anything here
+
+        #! ---------------------
+        #! Get the recipe 
+        #! ---------------------
+        id_recipe_reco = recommandation_par_preference(df_reco,list_recipes_id_liked, list_reciped_id_disliked,nb_recommandations=1)
+        print("Received recipe id from reco system: ", id_recipe_reco)
+
+        recipe_reco = df.loc[id_recipe_reco]
+
+        this_title = recipe_reco['title'].values[0]
+        print("Title: ",this_title)
+        this_image = recipe_reco['image'].values[0]
+        print("Image: ",this_image)
+        this_healthscore = recipe_reco['healthScore'].values[0]
+        print("Healthscore: ",this_healthscore)
+
+        #? We add the ID of the recipe to a txt file
+        lastRecipeID = recipe_reco['id'].values[0]
+        with open('lastRecipeID.txt', 'w') as f:
+            f.write(str(lastRecipeID))
+            print("Added RECIPEID to txt file")
+
+        #? create dict data
+        return_data = {
+            'title': this_title,
+            'image': this_image,
+            'healthScore': this_healthscore
+        }
+
+        #? Convert the data to json   
+        return_data = json.dumps(return_data , cls = NpEncoder)
+
+        #? Return the data
+        return flask.Response(response = return_data, status=201)
+
 
 
 #? Run Flask App
