@@ -1,16 +1,86 @@
 {
-    "Name": {},
-    "LastName": {},
-    "Birthday": {},
-    "Email": {},
-    "Password": {},
-    "LikedRecipes": {},
-    "UnlikedRecipes": {},
-    "Vegetarian": {},
-    "Vegan": {},
-    "EcoFriendly": {},
-    "VeryHealthy": {},
-    "GlutenFree": {},
-    "DairyFree": {},
-    "BirthDay": {}
+    "Name": {
+        "0": "Louis",
+        "1": "Louis",
+        "2": "Louis",
+        "3": "Louis"
+    },
+    "LastName": {
+        "0": "Arbey",
+        "1": "Arbey",
+        "2": "Arbey",
+        "3": "Arbey"
+    },
+    "Birthday": {
+        "0": null,
+        "1": null,
+        "2": null,
+        "3": null
+    },
+    "Email": {
+        "0": "louis.arbey@gmail.com",
+        "1": "louis.arbey@gmail.com",
+        "2": "louis.arbey@gmail.com",
+        "3": "louis.arbey@gmail.com"
+    },
+    "Password": {
+        "0": "ff",
+        "1": "ff",
+        "2": "ree",
+        "3": "ee"
+    },
+    "LikedRecipes": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+    },
+    "UnlikedRecipes": {
+        "0": [],
+        "1": [],
+        "2": [],
+        "3": []
+    },
+    "Vegetarian": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+    },
+    "Vegan": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+    },
+    "EcoFriendly": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+    },
+    "VeryHealthy": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+    },
+    "GlutenFree": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+    },
+    "DairyFree": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+    },
+    "BirthDay": {
+        "0": "11\/10\/2000",
+        "1": "11\/10\/2000",
+        "2": "11\/10\/2000",
+        "3": "11\/10\/2000"
+    }
 }

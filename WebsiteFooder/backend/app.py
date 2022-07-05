@@ -270,7 +270,7 @@ def get_dietary_restrictions():
         return flask.Response(response = "Dietary updated", status=201)
 
 #! Register a user
-@app.route("/register-user", methods=["POST"])
+@app.route("/register-user", methods=["GET" , "POST"])
 def register_user():
     if request.method == "POST":
         print("User asked to register: " , request.get_json())
@@ -303,9 +303,33 @@ def register_user():
         df.to_json('user.json')
 
         #? Return confirmation
-        return flask.Response(response = "success", status=201)
+        return flask.Response(response = "success", status=200)
 
+@app.route("/login-user", methods=["GET" , "POST"])
+def login_user():
+    if request.method == "POST":
+        print("User asked to login: " , request.get_json())
 
+        #? Retrieve the data
+        userInfos = request.get_json()
+
+        #? Open the json file and add it to a DF
+        df = pd.read_json('user.json', orient='records')
+
+        #? Check if the user exists
+        if userInfos['email'] in df['Email'].values:
+            #? Check if the password is correct
+            if userInfos['password'] == df.loc[df['Email'] == userInfos['email']]['Password'].values[0]:
+                #? Return the user infos
+                print("User successfully logged in")
+
+                return flask.Response(response = "success", status=200)
+            else:
+                #? Return error
+                return flask.Response(response = "error", status=401)
+        else:
+            #? Return error
+            return flask.Response(response = "error", status=401)
 
 
 #? Run Flask App

@@ -7,7 +7,7 @@ getXmlHttpRequestObject = function () {
     }
     return xhr;
 };
-
+ 
 function initFirstRecipe() {
     console.log("Web page loaded !");
     getInfos(2);

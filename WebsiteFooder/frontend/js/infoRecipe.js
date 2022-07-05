@@ -22,7 +22,7 @@ function getUrlParamArray(param) {
     }    
     return value;
 }
-
+ 
 //? Function to show all the informations of a recipe
 function initRecipeInfos(){
     //? Get the id of the recipe

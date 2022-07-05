@@ -21,6 +21,10 @@ a {
     text-decoration: none;
 }
 
+.logo_fooder {
+    cursor: pointer;
+}
+
 button {
     cursor: pointer;
 }
@@ -112,11 +116,15 @@ nav button{
 }
 
 /*meal CSS*/
+.box {
+    padding-bottom: 20px;
+    padding-right: 20px;
+}
 
-/* .boxs{
+.boxs{
     display:flex;
     flex-wrap: wrap;
-} */
+}
 
 .meal {
     margin: 100px 0;
