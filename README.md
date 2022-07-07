@@ -83,7 +83,7 @@ python app.py
 # Screenshots
 ![App Screenshot](Screenshots/mainPage.png)
 ![App Screenshot](Screenshots/swipePage.png)
-![App Screenshot](Screenshots/InfoRecipes.png)
+![App Screenshot](Screenshots/infoRecipes.png)
 
 # Authors
 This project have been designed and developped by :

@@ -4,10 +4,6 @@ body{
     margin: 0;
 }
 
-#page-reco {
-    background: rgb(253,58,115);
-background: linear-gradient(90deg, rgba(253,58,115,1) 0%, rgba(255,255,255,1) 22%, rgba(255,255,255,1) 78%, rgba(222,49,64,1) 100%);
-}
 
 nav{
     display: flex;
@@ -59,6 +55,17 @@ nav button{
 
 }
 
+.button-reco {
+    margin-left: 43%;
+    border-radius: 8px;
+    color:white;
+    background-color:#c95723 ;
+    font-family: 'PT Sans Narrow Bold', regular ;
+    font-weight: 700;
+    font-size: 16px;
+    width: 15%;
+}
+
 #nav_liste{
     display: flex;
     flex-direction: row;
@@ -101,29 +108,27 @@ p{
     padding-left: 8%;
     
 }
-    
-
 
 .animate-charcter{
-   text-transform: uppercase;
-  background-image: linear-gradient(
-    -225deg,
-    #231557 0%,
-    #44107a 29%,
-    #ff1361 67%,
-    #fff800 100%
-  );
-  background-size: auto auto;
-  background-clip: border-box;
-  background-size: 200% auto;
-  color: #fff;
-  background-clip: text;
-  text-fill-color: transparent;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: textclip 2s linear infinite;
-  display: inline-block;
-      font-size: 50px;
+    text-transform: uppercase;
+    background-image: linear-gradient(
+        -225deg,
+        rgba(222, 0, 0, 1) 0%,
+        #d6621e 29%,
+        #3c702c 67%,
+        #000000 100%
+    );
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 3s linear infinite;
+    display: inline-block;
+    font-size: 30px;
 }
 
 @keyframes textclip {
@@ -301,21 +306,38 @@ footer{
     display: flex;
     flex-direction: row;
     justify-content: center;
-}
-
-.bottom_buttons{
     margin-top: 40px;
     margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.cross, .heart, .equal{
+    border-radius: 10px;
+    
+}
+.cross{
+    margin-right: 40px
+}
+
+.equal{
+    margin-top: 15px;
+}
+
+.heart{
+    margin-left: 40px;
 }
 
 .iconify{
-    cursor: pointer;
     box-sizing: 0px;
     box-shadow: 0 1px 10px 0 rgba(0, 20, 20, 0.1);
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	border-radius: 70px;
+    margin: 0px 10px;
+    padding: 10px;
+    border: 5px solid rgb(234, 234, 234);
+    cursor: pointer;
 
 }
 
